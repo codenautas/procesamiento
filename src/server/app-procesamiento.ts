@@ -4,9 +4,7 @@ import * as operativos from "operativos";
 import {AppOperativos} from "operativos";
 
 import {ProceduresProcesamiento} from "./procedures-procesamiento";
-import { alias } from "./table-alias";
 
-export * from './types-procesamiento';
 export type Constructor<T> = new(...args: any[]) => T;
 export function emergeAppProcesamiento<T extends Constructor<InstanceType<typeof AppOperativos>>>(Base:T){
     
@@ -23,17 +21,16 @@ export function emergeAppProcesamiento<T extends Constructor<InstanceType<typeof
                 );
             });
         }    
-        clientIncludes(req:operativos.Request, hideBEPlusInclusions:boolean){
-            //TODO: es igual que en datos-ext llevarlo a operativos
-            return super.clientIncludes(req, hideBEPlusInclusions).concat([
-                {type:'js' , src:'client/procesamiento.js'},
-            ])
-        }
+        // clientIncludes(req:operativos.Request, hideBEPlusInclusions:boolean){
+        //     //TODO: es igual que en datos-ext llevarlo a operativos
+        //     return super.clientIncludes(req, hideBEPlusInclusions).concat([
+        //         {type:'js' , src:'client/procesamiento.js'},
+        //     ])
+        // }
         getMenu():operativos.MenuDefinition{
             //TODO: es igual que en datos-ext llevarlo a operativos
             let myMenuPart:operativos.MenuInfo[]=[
-                {menuType:'proc', name:'generar', proc:'calculadas/generar'},
-                {menuType:'table', name:'alias'},
+                // {menuType:'table', name:'grupo_personas'}, // GENERAR DINAMICAMENTE A PARTIR DE UA
             ];
             let menu = {menu: super.getMenu().menu.concat(myMenuPart)}
             return menu;
@@ -43,7 +40,7 @@ export function emergeAppProcesamiento<T extends Constructor<InstanceType<typeof
             super.prepareGetTables();
             this.getTableDefinition={
                 ...this.getTableDefinition,
-                alias
+                // grupo_personas // GENERAR DINAMICAMENTE A PARTIR DE UA
             }
         }
     }
