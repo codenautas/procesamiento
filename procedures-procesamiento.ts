@@ -1,11 +1,11 @@
 "use strict";
 
 import {ProcedureContext, Context} from "backend-plus";
-import * as VarCal from "varcal";
+import * as Procesamiento from "procesamiento";
 import * as fs from "fs-extra";
 import * as likear from "like-ar";
 import {VariablesOpciones} from "./types-datos-ext";
-import { CompilerOptions } from "varcal";
+import { CompilerOptions } from "procesamiento";
 
 type OrigenesGenerarParameters={
     operativo: string
@@ -14,7 +14,7 @@ type OrigenesGenerarParameters={
 
 //GENERALIZAR
 const OPERATIVO='REPSIC';
-const ESTRUCTURA_PARA_GENERAR:VarCal.DefinicionEstructural={
+const ESTRUCTURA_PARA_GENERAR:Procesamiento.DefinicionEstructural={
     aliases:{
         padre: {
             tabla: 'personas',
@@ -197,7 +197,7 @@ var ProceduresProcesamiento = [
             `,[OPERATIVO]).fetchAll();
             function wrapExpression(expression: string, pkExpression:string){
                 var opts:CompilerOptions={language:'sql', varWrapper:'null2zero', divWrapper:'div0err', elseWrapper:'lanzar_error'};
-                return VarCal.getWrappedExpression(expression, pkExpression, opts);
+                return Procesamiento.getWrappedExpression(expression, pkExpression, opts);
             }
             var variablesACalcular = variablesDatoResult.rows.map(function(v){
                 let expresionValidada;
@@ -210,7 +210,7 @@ var ProceduresProcesamiento = [
                 }else{
                     expresionValidada = wrapExpression(v.expresion,pkList);
                 }
-                let insumos=VarCal.getInsumos(expresionValidada);
+                let insumos=Procesamiento.getInsumos(expresionValidada);
                 return {
                     tabla:v.unidad_analisis, 
                     nombreVariable:v.variable, 
@@ -234,13 +234,13 @@ var ProceduresProcesamiento = [
             likear(allPrefixedPks).forEach(function(prefixedPk, ua:string){
                 prefixedPk.pks.forEach(pk => allVariables[pk] = {tabla:ua})
             });
-            var grupoVariables=VarCal.separarEnGruposPorNivelYOrigen(variablesACalcular, Object.keys(likear(allVariables).filter(v=> v.clase != 'calculada')), ESTRUCTURA_PARA_GENERAR);
+            var grupoVariables=Procesamiento.separarEnGruposPorNivelYOrigen(variablesACalcular, Object.keys(likear(allVariables).filter(v=> v.clase != 'calculada')), ESTRUCTURA_PARA_GENERAR);
             var parametrosGeneracion = {
-                nombreFuncionGeneradora:'gen_fun_var_calc',
+                nombreFuncionGeneradora:'gen_fun_procesamientoc',
                 esquema: be.config.db.schema,
             };
-            var funcionGeneradora = VarCal.funcionGeneradora(grupoVariables, parametrosGeneracion, ESTRUCTURA_PARA_GENERAR, allVariables);
-            allSqls = ['do $SQL_DUMP$\n begin', "set search_path = "+be.config.db.schema+';'].concat(allSqls).concat(funcionGeneradora, 'perform gen_fun_var_calc();', 'end\n$SQL_DUMP$');
+            var funcionGeneradora = Procesamiento.funcionGeneradora(grupoVariables, parametrosGeneracion, ESTRUCTURA_PARA_GENERAR, allVariables);
+            allSqls = ['do $SQL_DUMP$\n begin', "set search_path = "+be.config.db.schema+';'].concat(allSqls).concat(funcionGeneradora, 'perform gen_fun_procesamientoc();', 'end\n$SQL_DUMP$');
             let localMiroPorAhora = './local-miro-por-ahora.sql';
             var now=new Date();
             var todoElScript=allSqls.join('\n----\n')+'--- generado: '+now.toISOString()+'\n';

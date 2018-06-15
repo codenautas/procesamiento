@@ -1,0 +1,41 @@
+{
+  "name": "procesamiento",
+  "description": "Módulo de Procesamiento",
+  "version": "0.1.1",
+  "author": "Codenautas <codenautas@googlegroups.com>",
+  "license": "MIT",
+  "main": "server/app-procesamiento.js",
+  "types": "server/app-procesamiento.d.ts",
+  "files": [
+    "client",
+    "install",
+    "server",
+    "unlogged"
+  ],
+  "dependencies": {
+    "operativos": "~0.1.12",
+    "pg-triggers": "^0.2.1"
+  },
+  "devDependencies": {
+    "types.d.ts": "^0.1.25",
+    "@types/node": "~10.3.3"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "scripts": {
+    "x-test": "tsc || echo \"continue with errors\" && mocha --reporter spec --bail --check-leaks tests\\tests\\*.js",
+    "test": "(npm run prepublish || echo \"continue with errors\") && mocha --reporter spec --bail --check-leaks tests/tests/*.js",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks tests/tests/",
+    "start": "node server/server-procesamiento.js",
+    "prepublish": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-tests.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\")"
+  },
+  "qa-control": {
+    "package-version": "0.3.0",
+    "coverage": 90,
+    "run-in": "server",
+    "stability": "extending",
+    "type": "lib",
+    "ecmaVersion": 6
+  }
+}
