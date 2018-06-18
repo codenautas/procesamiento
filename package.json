@@ -14,13 +14,14 @@
   ],
   "dependencies": {
     "operativos": "~0.1.12",
-    "varcal": "~0.1.19",
     "datos-ext": "~0.1.5",
+    "varcal": "~0.1.20",
     "pg-triggers": "^0.2.1"
   },
   "devDependencies": {
     "types.d.ts": "^0.1.25",
-    "@types/node": "~10.3.3"
+    "@types/node": "~10.3.3",
+    "pg-promise-strict": "~0.4.7"
   },
   "engines": {
     "node": ">= 8.0.0"
@@ -30,7 +31,7 @@
     "test": "(npm run prepublish || echo \"continue with errors\") && mocha --reporter spec --bail --check-leaks tests/tests/*.js",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks tests/tests/",
     "start": "node server/server-procesamiento.js",
-    "prepublish": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-tests.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\")"
+    "prepublish": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\")"
   },
   "qa-control": {
     "package-version": "0.3.0",

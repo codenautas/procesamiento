@@ -7,20 +7,20 @@ function emergeAppProcesamiento(Base) {
             super(...args);
         }
         getProcedures() {
-            //TODO: es igual que en datos-ext llevarlo a operativos
+            //TODO: es igual que en datos-ext llevarlo a varcal
             var be = this;
             return super.getProcedures().then(function (procedures) {
                 return procedures.concat(procedures_procesamiento_1.ProceduresProcesamiento.map(be.procedureDefCompleter, be));
             });
         }
-        // clientIncludes(req:operativos.Request, hideBEPlusInclusions:boolean){
-        //     //TODO: es igual que en datos-ext llevarlo a operativos
+        // clientIncludes(req:varcal.Request, hideBEPlusInclusions:boolean){
+        //     //TODO: es igual que en datos-ext llevarlo a varcal
         //     return super.clientIncludes(req, hideBEPlusInclusions).concat([
         //         {type:'js' , src:'client/procesamiento.js'},
         //     ])
         // }
         getMenu() {
-            //TODO: es igual que en datos-ext llevarlo a operativos
+            //TODO: es igual que en datos-ext llevarlo a varcal
             let myMenuPart = [
             // {menuType:'table', name:'grupo_personas'}, // GENERAR DINAMICAMENTE A PARTIR DE UA
             ];
@@ -28,7 +28,7 @@ function emergeAppProcesamiento(Base) {
             return menu;
         }
         prepareGetTables() {
-            //TODO: es igual que en datos-ext llevarlo a operativos
+            //TODO: es igual que en datos-ext llevarlo a varcal
             super.prepareGetTables();
             this.getTableDefinition = Object.assign({}, this.getTableDefinition);
         }

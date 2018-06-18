@@ -1,15 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// import * from "varcal";
 var ProceduresProcesamiento = [
     {
-    // action: 'definicion_estructural/armar',
-    // parameters: [
-    //     {name:'operativo'     ,references:'operativos',  typeName:'text'},
-    // ],
-    // coreFunction: async function(context:operativos.ProcedureContext, parameters: coreFunctionParameters){
-    // var sqlParams=[parameters.operativo];
-    // return defEst;
-    // }
+        action: 'saludos/hola',
+        parameters: [
+            { name: 'operativo', references: 'operativos', typeName: 'text' },
+        ],
+        coreFunction: async function (context, parameters) {
+            var sqlParams = [parameters.varcal] + context.username;
+            return sqlParams;
+        }
     },
 ];
 exports.ProceduresProcesamiento = ProceduresProcesamiento;
