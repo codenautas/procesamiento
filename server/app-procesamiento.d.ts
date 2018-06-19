@@ -1,6 +1,4 @@
-/// <reference path="../../varcal/node_modules/types.d.ts/modules/pg-promise-strict/index.d.ts" />
-/// <reference path="../node_modules/types.d.ts/modules/pg-promise-strict/index.d.ts" />
-/// <reference path="../../datos-ext/node_modules/types.d.ts/modules/pg-promise-strict/index.d.ts" />
+/// <reference path="../node_modules/pg-promise-strict/pg-promise-strict.d.ts" />
 import * as varcal from "varcal";
 import { AppVarCal } from "varcal";
 export declare type Constructor<T> = new (...args: any[]) => T;
