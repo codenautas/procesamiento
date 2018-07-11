@@ -14,8 +14,7 @@
   ],
   "dependencies": {
     "datos-ext": "~0.1.11",
-    "varcal": "~0.1.25",
-    "pg-triggers": "^0.2.1"
+    "varcal": "~0.1.25"
   },
   "engines": {
     "node": ">= 8.0.0"
