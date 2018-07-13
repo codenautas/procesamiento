@@ -1,5 +1,5 @@
 server:
-  port: 3031
+  port: 3034
   base-url: /procesamiento
   session-store: memory
 db:
