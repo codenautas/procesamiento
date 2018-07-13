@@ -1,12 +1,10 @@
 "use strict";
 
 import * as varcal from "varcal";
-import {AppVarCal} from "varcal";
-
 import {ProceduresProcesamiento} from "./procedures-procesamiento";
 
 export type Constructor<T> = new(...args: any[]) => T;
-export function emergeAppProcesamiento<T extends Constructor<InstanceType<typeof AppVarCal>>>(Base:T){
+export function emergeAppProcesamiento<T extends Constructor<varcal.VarCalType>>(Base:T){
     
     return class AppProcesamiento extends Base{
         constructor(...args:any[]){ 
