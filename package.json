@@ -13,8 +13,8 @@
     "unlogged"
   ],
   "dependencies": {
-    "datos-ext": "~0.1.12",
-    "varcal": "~0.1.27"
+    "datos-ext": "~0.1.13",
+    "varcal": "~0.1.28"
   },
   "engines": {
     "node": ">= 8.0.0"
