@@ -7,9 +7,11 @@ export type Constructor<T> = new(...args: any[]) => T;
 export function emergeAppProcesamiento<T extends Constructor<varcal.VarCalType>>(Base:T){
     
     return class AppProcesamiento extends Base{
+        myProcedures: varcal.ProcedureDef[] = procedures;
+        myClientFileName: string = 'procesamiento';
         constructor(...args:any[]){ 
-            super(...args);
-            this.myProcedures = this.myProcedures.concat(procedures);
+            super(args);
+            this.initialize();
         }
 
         getMenu():varcal.MenuDefinition{
