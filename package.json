@@ -1,7 +1,7 @@
 {
   "name": "procesamiento",
   "description": "Módulo de Procesamiento",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Codenautas <codenautas@googlegroups.com>",
   "license": "MIT",
   "main": "server/app-procesamiento.js",
@@ -13,8 +13,8 @@
     "unlogged"
   ],
   "dependencies": {
-    "datos-ext": "~0.1.13",
-    "varcal": "~0.1.28"
+    "datos-ext": "~0.1.14",
+    "varcal": "~0.1.32"
   },
   "engines": {
     "node": ">= 8.0.0"

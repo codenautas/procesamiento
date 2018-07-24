@@ -8,10 +8,11 @@ export function emergeAppProcesamiento<T extends Constructor<varcal.VarCalType>>
     
     return class AppProcesamiento extends Base{
         myProcedures: varcal.ProcedureDef[] = procedures;
-        myClientFileName: string = 'procesamiento';
+
         constructor(...args:any[]){ 
-            super(args);
+            super(args);    
             this.initialize();
+            this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
         }
 
         getMenu():varcal.MenuDefinition{
