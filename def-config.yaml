@@ -22,6 +22,7 @@ install:
       post-adapt: 
       - event_control_creates.sql
       - para-install.sql
+      - ../node_modules/datos-ext/install/controlar_modificacion_estructura_cerrada.sql
       - ../node_modules/varcal/install/wrappers.sql
       - ../node_modules/pg-triggers/lib/recreate-his.sql
       - ../node_modules/pg-triggers/lib/table-changes.sql
@@ -60,6 +61,7 @@ login:
     lockedFail: el usuario se encuentra bloqueado
     inactiveFail: es usuario está marcado como inactivo
 client-setup:
+  title: Procesamiento
   cursors: true
   lang: es
   menu: true
