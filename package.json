@@ -14,7 +14,7 @@
   ],
   "dependencies": {
     "datos-ext": "~0.1.18",
-    "varcal": "~0.1.36"
+    "varcal": "~0.1.37"
   },
   "devDependencies": {
     "copyfiles": "~2.0.0"
