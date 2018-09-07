@@ -5,7 +5,7 @@ server:
 db:
   motor: postgresql
   host: localhost
-  database: procesamiento_db
+  database: procesamiento_operativos_db
   schema: procesamiento
   user: procesamiento_user
   password: la_clavasdf93939kdkx.sdlf2342sdaf####109
