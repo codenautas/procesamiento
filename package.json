@@ -13,8 +13,8 @@
     "unlogged"
   ],
   "dependencies": {
-    "datos-ext": "~0.1.18",
-    "varcal": "~0.1.36",
+    "datos-ext": "~0.1.19",
+    "varcal": "~0.1.38",
     "exportador": "0.0.1"
   },
   "devDependencies": {
