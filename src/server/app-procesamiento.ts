@@ -39,7 +39,6 @@ export function emergeAppProcesamiento<T extends Constructor<varcal.VarCalType>>
               skip-content: true
               scripts:
                 post-adapt: 
-                - event_control_creates.sql
                 - para-install.sql
                 - ../node_modules/datos-ext/install/controlar_modificacion_estructura_cerrada.sql
                 - ../node_modules/varcal/install/wrappers.sql
@@ -94,13 +93,13 @@ export function emergeAppProcesamiento<T extends Constructor<varcal.VarCalType>>
             let menu = {menu: super.getMenu().menu.concat(myMenuPart)}
             return menu;
         }
-        prepareGetTables(){
-            //TODO: es igual que en datos-ext llevarlo a varcal
-            super.prepareGetTables();
-            this.getTableDefinition={
-                ...this.getTableDefinition,
-                // grupo_personas // GENERAR DINAMICAMENTE A PARTIR DE UA
-            }
-        }
+        // prepareGetTables(){
+        //     //TODO: es igual que en datos-ext llevarlo a varcal
+        //     super.prepareGetTables();
+        //     this.getTableDefinition={
+        //         ...this.getTableDefinition,
+        //         // grupo_personas // GENERAR DINAMICAMENTE A PARTIR DE UA
+        //     }
+        // }
     }
 }
