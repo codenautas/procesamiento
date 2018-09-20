@@ -1,9 +1,10 @@
 "use strict";
 
-import {emergeAppProcesamiento} from "./app-procesamiento"
-import {emergeAppDatosExt, emergeAppOperativos, AppBackend} from "datos-ext"
-import {emergeAppVarCal} from "varcal"
+import { AppBackend, emergeAppDatosExt, emergeAppOperativos } from "datos-ext";
+import { emergeAppExportador } from "exportador";
+import { emergeAppVarCal } from "varcal";
+import { emergeAppProcesamiento } from "./app-procesamiento";
 
-var AppProcesamiento = emergeAppProcesamiento(emergeAppVarCal(emergeAppDatosExt(emergeAppOperativos(AppBackend))));
+var AppProcesamiento = emergeAppProcesamiento(emergeAppVarCal(emergeAppExportador(emergeAppDatosExt(emergeAppOperativos(AppBackend)))));
 
 new AppProcesamiento().start();
