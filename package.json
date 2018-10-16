@@ -13,10 +13,10 @@
     "unlogged"
   ],
   "dependencies": {
-    "datos-ext": "~0.1.22",
-    "exportador": "~0.0.4",
-    "consistencias": "~0.0.5",
-    "varcal": "~0.1.42"
+    "datos-ext": "~0.1.23",
+    "exportador": "~0.0.5",
+    "consistencias": "~0.0.6",
+    "varcal": "~0.1.43"
   },
   "devDependencies": {
     "copyfiles": "~2.1.0"
