@@ -3,6 +3,7 @@
   "description": "Módulo de Procesamiento",
   "version": "0.1.5",
   "author": "Codenautas <codenautas@googlegroups.com>",
+  "repository": "codenautas/procesamiento",
   "license": "MIT",
   "main": "server/app-procesamiento.js",
   "types": "server/app-procesamiento.d.ts",
