@@ -4,7 +4,7 @@ import * as varcal from "varcal";
 import {procedures} from "./procedures-procesamiento";
 
 export type Constructor<T> = new(...args: any[]) => T;
-export function emergeAppProcesamiento<T extends Constructor<varcal.VarCalType>>(Base:T){
+export function emergeAppProcesamiento<T extends Constructor<varcal.AppVarCalType>>(Base:T){
     
     return class AppProcesamiento extends Base{
         myProcedures: varcal.ProcedureDef[] = procedures;
