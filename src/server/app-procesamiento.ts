@@ -9,11 +9,15 @@ export function emergeAppProcesamiento<T extends Constructor<varcal.AppVarCalTyp
     
     return class AppProcesamiento extends Base{
         myProcedures: varcal.ProcedureDef[] = procedures;
+        // TODO: para que funcione como capa de app dependencia 
+        // necesita la siguiente linea NO comentada
         myClientFileName: string = 'procesamiento';
 
         constructor(...args:any[]){ 
             super(args);    
             this.initialize();
+            // TODO: para que este paquete funcione como dependencia, necesita 
+            // la siguiente linea comentada
             // this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
         }
 
