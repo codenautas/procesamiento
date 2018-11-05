@@ -3,16 +3,18 @@
 import * as varcal from "varcal";
 import {procedures} from "./procedures-procesamiento";
 
+// TODO sacar esto y ponerlo en operativos 
 export type Constructor<T> = new(...args: any[]) => T;
 export function emergeAppProcesamiento<T extends Constructor<varcal.AppVarCalType>>(Base:T){
     
     return class AppProcesamiento extends Base{
         myProcedures: varcal.ProcedureDef[] = procedures;
+        myClientFileName: string = 'procesamiento';
 
         constructor(...args:any[]){ 
             super(args);    
             this.initialize();
-            this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
+            // this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
         }
 
         configStaticConfig(){
@@ -103,3 +105,6 @@ export function emergeAppProcesamiento<T extends Constructor<varcal.AppVarCalTyp
         // }
     }
 }
+
+export var AppProcesamiento = emergeAppProcesamiento(varcal.emergeAppVarCal(varcal.AppOperativos));
+export type AppProcesamientoType = InstanceType<typeof AppProcesamiento>;
