@@ -1,6 +1,7 @@
 "use strict";
 
 import * as varcal from "varcal";
+export * from "./types-procesamiento"
 
 export function emergeAppProcesamiento<T extends varcal.Constructor<varcal.AppVarCalType>>(Base:T){
     
