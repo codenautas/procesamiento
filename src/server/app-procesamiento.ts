@@ -1,24 +1,15 @@
 "use strict";
 
 import * as varcal from "varcal";
-import {procedures} from "./procedures-procesamiento";
 
-// TODO sacar esto y ponerlo en operativos 
-export type Constructor<T> = new(...args: any[]) => T;
-export function emergeAppProcesamiento<T extends Constructor<varcal.AppVarCalType>>(Base:T){
+export function emergeAppProcesamiento<T extends varcal.Constructor<varcal.AppVarCalType>>(Base:T){
     
     return class AppProcesamiento extends Base{
-        myProcedures: varcal.ProcedureDef[] = procedures;
-        // TODO: para que funcione como capa de app dependencia 
-        // necesita la siguiente linea NO comentada
-        myClientFileName: string = 'procesamiento';
-
         constructor(...args:any[]){ 
             super(args);    
-            this.initialize();
-            // TODO: para que este paquete funcione como dependencia, necesita 
-            // la siguiente linea comentada
-            // this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
+            // NO COMITEAR
+            // this.allClientFileNames.push({type:'js', module: 'procesamiento', modPath: '../client', file: 'procesamiento.js', path: 'client_modules'})
+            this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
         }
 
         configStaticConfig(){
@@ -90,23 +81,6 @@ export function emergeAppProcesamiento<T extends Constructor<varcal.AppVarCalTyp
             menu: true
             `);
         }
-
-        getMenu():varcal.MenuDefinition{
-            //TODO: es igual que en datos-ext llevarlo a varcal
-            let myMenuPart:varcal.MenuInfo[]=[
-                // {menuType:'table', name:'grupo_personas'}, // GENERAR DINAMICAMENTE A PARTIR DE UA
-            ];
-            let menu = {menu: super.getMenu().menu.concat(myMenuPart)}
-            return menu;
-        }
-        // prepareGetTables(){
-        //     //TODO: es igual que en datos-ext llevarlo a varcal
-        //     super.prepareGetTables();
-        //     this.getTableDefinition={
-        //         ...this.getTableDefinition,
-        //         // grupo_personas // GENERAR DINAMICAMENTE A PARTIR DE UA
-        //     }
-        // }
     }
 }
 
