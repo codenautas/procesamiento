@@ -38,7 +38,7 @@ export function emergeAppProcesamiento<T extends varcal.Constructor<varcal.AppVa
               scripts:
                 post-adapt: 
                 - para-install.sql
-                - ../node_modules/datos-ext/install/controlar_modificacion_estructura_cerrada.sql
+                - ../node_modules/datos-ext/install/controlar_modificacion_generada.sql
                 - ../node_modules/varcal/install/wrappers.sql
                 - ../node_modules/pg-triggers/lib/recreate-his.sql
                 - ../node_modules/pg-triggers/lib/table-changes.sql
