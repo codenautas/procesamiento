@@ -15,8 +15,7 @@
   ],
   "dependencies": {
     "datos-ext": "~0.2.0",
-    "consistencias": "~0.2.0",
-    "varcal": "~0.2.0"
+    "consistencias": "~0.2.0"
   },
   "devDependencies": {
     "copyfiles": "~2.1.0"

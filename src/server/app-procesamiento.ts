@@ -1,9 +1,10 @@
 "use strict";
 
+import { AppBackend, AppConsistenciasType, emergeAppConsistencias, emergeAppOperativos } from "consistencias";
 import * as varcal from "varcal";
-export * from "./types-procesamiento"
+export * from "./types-procesamiento";
 
-export function emergeAppProcesamiento<T extends varcal.Constructor<varcal.AppVarCalType>>(Base:T){
+export function emergeAppProcesamiento<T extends varcal.Constructor<AppConsistenciasType>>(Base:T){
     
     return class AppProcesamiento extends Base{
         constructor(...args:any[]){ 
@@ -85,5 +86,5 @@ export function emergeAppProcesamiento<T extends varcal.Constructor<varcal.AppVa
     }
 }
 
-export var AppProcesamiento = emergeAppProcesamiento(varcal.emergeAppVarCal(varcal.AppOperativos));
+export var AppProcesamiento = emergeAppProcesamiento(emergeAppConsistencias(varcal.emergeAppVarCal(emergeAppOperativos(AppBackend))));
 export type AppProcesamientoType = InstanceType<typeof AppProcesamiento>;
