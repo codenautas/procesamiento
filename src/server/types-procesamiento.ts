@@ -1,4 +1,5 @@
 "use strict";
 
-export * from 'datos-ext';
 export * from 'consistencias';
+export * from 'datos-ext';
+

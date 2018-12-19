@@ -1,8 +1,7 @@
 "use strict";
 
-import { AppBackend, emergeAppOperativos, emergeAppDatosExt } from "datos-ext";
-import { emergeAppVarCal, emergeAppConsistencias } from "consistencias";
-// import { emergeAppExportador } from "exportador";
+import { AppBackend, emergeAppConsistencias, emergeAppOperativos, emergeAppVarCal } from "consistencias";
+import { emergeAppDatosExt } from "datos-ext";
 import { emergeAppProcesamiento } from "./app-procesamiento";
 
 var AppProcesamiento = emergeAppProcesamiento(emergeAppConsistencias(emergeAppVarCal(emergeAppDatosExt(emergeAppOperativos(AppBackend)))));
