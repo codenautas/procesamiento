@@ -1,7 +1,7 @@
 {
   "name": "procesamiento",
   "description": "Módulo de Procesamiento",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": "Codenautas <codenautas@googlegroups.com>",
   "repository": "codenautas/procesamiento",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "unlogged"
   ],
   "dependencies": {
-    "consistencias": "~0.4.2",
+    "consistencias": "~0.4.3",
     "datos-ext": "~0.4.5"
   },
   "devDependencies": {
