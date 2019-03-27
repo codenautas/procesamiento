@@ -1,7 +1,7 @@
 "use strict";
 
 import { Constructor, AppBackend, AppConsistenciasType, emergeAppConsistencias, emergeAppVarCal, emergeAppOperativos } from "consistencias";
-import { emergeAppDatosExt } from "datos-ext";
+import { emergeAppDatosExt, Request } from "datos-ext";
 export * from "./types-procesamiento";
 import {defConfig} from "./def-config";
 
@@ -12,7 +12,18 @@ export function emergeAppProcesamiento<T extends Constructor<AppConsistenciasTyp
             super(args);    
             // NO COMITEAR
             // this.allClientFileNames.push({type:'js', module: 'procesamiento', modPath: '../client', file: 'procesamiento.js', path: 'client_modules'})
-            this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
+            //this.allClientFileNames.push({type:'js', src: 'client/procesamiento.js' })
+        }
+        
+        async getProcedures(){
+            var parentProc = await super.getProcedures()
+            return parentProc.concat(procedures);
+        }
+
+        clientIncludes(req:Request, hideBEPlusInclusions?:boolean){
+            return super.clientIncludes(req, hideBEPlusInclusions).concat([
+                {type:'js', module: 'procesamiento', modPath: '../client', file: 'procesamiento.js', path: 'client_modules'}
+            ])
         }
 
         configStaticConfig(){
