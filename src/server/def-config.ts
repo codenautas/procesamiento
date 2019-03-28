@@ -1,5 +1,4 @@
 export const defConfig=`
-
 server:
   port: 3034
   base-url: /procesamiento
@@ -11,21 +10,21 @@ db:
   schema: procesamiento
   user: procesamiento_user
 install:
-dump:
-  db:
-    owner: procesamiento_owner
-  admin-can-create-tables: true
-  enances: inline
-  skip-content: true
-  scripts:
-    post-adapt: 
-    - para-install.sql
-    - ../node_modules/datos-ext/install/controlar_modificacion_generada.sql
-    - ../node_modules/varcal/install/wrappers.sql
-    - ../node_modules/pg-triggers/lib/recreate-his.sql
-    - ../node_modules/pg-triggers/lib/table-changes.sql
-    - ../node_modules/pg-triggers/lib/function-changes-trg.sql
-    - ../node_modules/pg-triggers/lib/enance.sql
+  dump:
+    db:
+      owner: procesamiento_owner
+    admin-can-create-tables: true
+    enances: inline
+    skip-content: true
+    scripts:
+      post-adapt: 
+      - para-install.sql
+      - ../node_modules/datos-ext/install/controlar_modificacion_generada.sql
+      - ../node_modules/varcal/install/wrappers.sql
+      - ../node_modules/pg-triggers/lib/recreate-his.sql
+      - ../node_modules/pg-triggers/lib/table-changes.sql
+      - ../node_modules/pg-triggers/lib/function-changes-trg.sql
+      - ../node_modules/pg-triggers/lib/enance.sql
 login:
   table: usuarios
   userFieldName: usuario
