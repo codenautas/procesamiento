@@ -1,4 +1,4 @@
 "use strict";
-import { ProcedureDef } from "varcal";
+import { ProcedureDef } from "consistencias";
 var procedures: ProcedureDef[] = [];
 export {procedures};
