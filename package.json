@@ -8,15 +8,13 @@
   "main": "dist/server/app-procesamiento.js",
   "types": "dist/server/app-procesamiento.d.ts",
   "files": [
-    "dist",
-    "install"
+    "dist"
   ],
   "dependencies": {
     "consistencias": "~0.5.6",
     "datos-ext": "~0.5.6"
   },
   "devDependencies": {
-    "copyfiles": "~2.1.0",
     "mixin-patch": "~0.2.0"
   },
   "engines": {
@@ -26,11 +24,9 @@
     "x-test": "tsc || echo \"continue with errors\" && mocha --reporter spec --bail --check-leaks tests\\tests\\*.js",
     "test": "(npm run build || echo \"continue with errors\") && mocha --reporter spec --bail --check-leaks tests/tests/*.js",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks tests/tests/",
-    "cpfiles": "copyfiles -f src/client/img/* dist/client/img",
-    "build-linux": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\")",
     "prepare": "npm run build",
-    "build": "npm run cpfiles && tsc -p tsconfig-client.json && tsc -p tsconfig-server.json & mixin-patch",
-    "build-ignoring-err": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\")",
+    "build": "tsc -p tsconfig-client.json && tsc -p tsconfig-server.json && mixin-patch",
+    "build-ignoring-err": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\") && mixin-patch",
     "start": "node dist/server/server-procesamiento.js"
   },
   "qa-control": {
