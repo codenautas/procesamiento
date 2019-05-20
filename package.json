@@ -1,7 +1,7 @@
 {
   "name": "procesamiento",
   "description": "Módulo de Procesamiento",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "author": "Codenautas <codenautas@googlegroups.com>",
   "repository": "codenautas/procesamiento",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "~0.6.1",
+    "consistencias": "~0.7.0",
     "datos-ext": "~0.6.0"
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks tests/tests/",
     "prepare": "npm run build",
     "build": "tsc -p tsconfig-client.json && tsc -p tsconfig-server.json && mixin-patch",
-    "build-ignoring-err": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\") && mixin-patch",
+    "build-force": "(tsc -p tsconfig-client.json || echo \"continue w/error\") && (tsc -p tsconfig-server.json  || echo \"continue w/error\") && mixin-patch",
     "start": "node dist/server/server-procesamiento.js"
   },
   "qa-control": {
