@@ -3,7 +3,11 @@
   "description": "Módulo de Procesamiento",
   "version": "0.7.2",
   "author": "Codenautas <codenautas@googlegroups.com>",
-  "contributors": ["Raquel N Salva <raquelzssalva@gmail.com>, Eugenio Arosteguy <eugenio.arosteguy@gmail.com>, Emilio Platzer <emilioplatzer@gmail.com>"],
+  "contributors": [
+    "Raquel N Salva <raquelzssalva@gmail.com>", 
+    "Eugenio Arosteguy <eugenio.arosteguy@gmail.com>",
+    "Emilio Platzer <emilioplatzer@gmail.com>"
+  ],
   "repository": "codenautas/procesamiento",
   "license": "MIT",
   "main": "dist/server/app-procesamiento.js",
