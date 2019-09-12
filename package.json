@@ -1,7 +1,7 @@
 {
   "name": "procesamiento",
   "description": "Módulo de Procesamiento",
-  "version": "0.7.6",
+  "version": "0.7.7",
   "author": "Codenautas <codenautas@googlegroups.com>",
   "contributors": [
     "Raquel N Salva <raquelzssalva@gmail.com>",
@@ -16,7 +16,7 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "~0.7.8",
+    "consistencias": "~0.7.9",
     "datos-ext": "~0.7.4"
   },
   "devDependencies": {
