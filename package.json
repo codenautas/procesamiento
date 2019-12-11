@@ -16,8 +16,8 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "~0.7.14",
-    "datos-ext": "~0.7.8"
+    "consistencias": "~0.7.15",
+    "datos-ext": "~0.7.9"
   },
   "devDependencies": {
     "mixin-patch": "~0.3.1"
