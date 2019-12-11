@@ -1,6 +1,6 @@
 "use strict";
 
-import { Constructor, AppBackend, AppConsistenciasType, emergeAppConsistencias, emergeAppVarCal, emergeAppOperativos } from "consistencias";
+import { Constructor, AppBackend, AppConsistenciasType, emergeAppConsistencias, emergeAppVarCal, emergeAppOperativos, OptsClientPage } from "consistencias";
 import { emergeAppDatosExt, Request } from "datos-ext";
 import {defConfig} from "./def-config";
 import {procedures} from "./procedures-procesamiento"
@@ -18,7 +18,7 @@ export function emergeAppProcesamiento<T extends Constructor<AppConsistenciasTyp
             return parentProc.concat(procedures);
         }
 
-        clientIncludes(req:Request, hideBEPlusInclusions?:boolean){
+        clientIncludes(req:Request, hideBEPlusInclusions:OptsClientPage){
             return super.clientIncludes(req, hideBEPlusInclusions).concat([
                 {type:'js', module: 'procesamiento', modPath: '../client', file: 'procesamiento.js', path: 'client_modules'}
             ])
