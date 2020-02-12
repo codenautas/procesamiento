@@ -16,7 +16,7 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "~0.7.16",
+    "consistencias": "~0.7.18",
     "datos-ext": "~0.7.10"
   },
   "devDependencies": {
