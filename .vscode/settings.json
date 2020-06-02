@@ -1,3 +1,4 @@
 {
-    "window.title": "π ${dirty}${separator}${rootName}${separator}${activeEditorShort}"
+    "window.title": "π ${dirty}${separator}${rootName}${separator}${activeEditorShort}",
+    "typescript.tsdk": "node_modules/typescript/lib"
 }
