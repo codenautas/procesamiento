@@ -16,21 +16,20 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "^1.0.1",
-    "datos-ext": "^1.0.5"
+    "consistencias": "^1.3.3",
+    "datos-ext": "^1.0.7"
   },
   "devDependencies": {
-    "mixin-patch": "~0.3.3"
+    "mixin-patch": "~0.3.7"
   },
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">= 14.0.0"
   },
   "scripts": {
     "//prebuild:force": "(tsc -p src/client & tsc -p src/server || echo \"continue w/error\")",
     "//build:force": "npm run //prebuild:force && mixin-patch",
     "prepare": "npm run build",
-    "prebuild": "(tsc -p src/client & tsc -p src/server || echo \"continue w/error\")",
-    "build": "npm run prebuild && mixin-patch",
+    "build": "(tsc -p src/client || echo \"continue w/error\") & (tsc -p src/server || echo \"continue w/error\") && mixin-patch",
     "watch:build": "npm run prebuild -- --watch",
     "x-test": "tsc || echo \"continue with errors\" && mocha --reporter spec --bail --check-leaks tests\\tests\\*.js",
     "test": "(npm run build || echo \"continue with errors\") && mocha --reporter spec --bail --check-leaks tests/tests/*.js",
