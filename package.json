@@ -16,11 +16,11 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "^1.3.7",
-    "datos-ext": "^1.0.11"
+    "consistencias": "^1.3.11",
+    "datos-ext": "^1.0.12"
   },
   "devDependencies": {
-    "mixin-patch": "~0.4.0"
+    "mixin-patch": "~0.4.1"
   },
   "engines": {
     "node": ">= 14.0.0"
