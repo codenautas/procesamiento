@@ -1,7 +1,7 @@
 {
   "name": "procesamiento",
   "description": "Módulo de Procesamiento",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "author": "Codenautas <codenautas@googlegroups.com>",
   "contributors": [
     "Raquel N Salva <raquelzssalva@gmail.com>",
@@ -16,11 +16,12 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "^2.0.7",
+    "consistencias": "^2.0.8",
     "datos-ext": "^1.0.18"
   },
   "devDependencies": {
-    "mixin-patch": "~0.4.1"
+    "mixin-patch": "~0.4.1",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">= 14.0.0"
