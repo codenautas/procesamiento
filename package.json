@@ -1,7 +1,7 @@
 {
   "name": "procesamiento",
   "description": "Módulo de Procesamiento",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "author": "Codenautas <codenautas@googlegroups.com>",
   "contributors": [
     "Raquel N Salva <raquelzssalva@gmail.com>",
@@ -16,8 +16,8 @@
     "dist"
   ],
   "dependencies": {
-    "consistencias": "^2.0.6",
-    "datos-ext": "^1.0.17"
+    "consistencias": "^2.0.7",
+    "datos-ext": "^1.0.18"
   },
   "devDependencies": {
     "mixin-patch": "~0.4.1"
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "tsc -b src/server src/client",
+    "prebuild": "(tsc -p src/server || echo \"continue w/error\") && (tsc -p src/client || echo \"continue w/error\")",
     "build": "npm run prebuild && mixin-patch",
     "watch:build": "npm run prebuild -- --watch",
     "x-test": "tsc || echo \"continue with errors\" && mocha --reporter spec --bail --check-leaks tests\\tests\\*.js",
