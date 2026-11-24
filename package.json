@@ -20,7 +20,10 @@
     "datos-ext": "^1.3.3"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "discrepances": "^0.2.14",
     "mixin-patch": "~0.4.1",
+    "mocha": "^11.8.0",
     "typescript": "^5.8.3"
   },
   "engines": {
@@ -28,16 +31,11 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "(tsc -p src/server || echo \"continue w/error\") && (tsc -p src/client || echo \"continue w/error\")",
-    "build": "npm run prebuild && mixin-patch",
-    "watch:build": "npm run prebuild -- --watch",
-    "x-test": "tsc || echo \"continue with errors\" && mocha --reporter spec --bail --check-leaks tests\\tests\\*.js",
-    "test": "(npm run build || echo \"continue with errors\") && mocha --reporter spec --bail --check-leaks tests/tests/*.js",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks tests/tests/",
+    "build": "tsc -p src/server && tsc -p src/client && mixin-patch",
+    "watch:build": "tsc -p src/server --watch",
+    "test": "tsc -p src/tests && mocha --reporter spec --bail --check-leaks compile-for-test/tests/*.js",
     "start": "node dist/server/server-procesamiento.js",
-    "clink": "npm prune && npm i && npm run build && npm link consistencias && npm link datos-ext && npm run build",
-    "git-commit": "git add package.json && (git commit -m \"upgrading stack dependencies\" || true)",
-    "push-publish": "npm version patch && ncu -u && npm run git-commit && npm publish && git push"
+    "clink": "npm prune && npm i && npm run build && npm link consistencias && npm link datos-ext && npm run build"
   },
   "qa-control": {
     "package-version": "0.3.0",
